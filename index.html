@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>To-Do App</title>
+ <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+ <div class="container">
+ <header>
+ <h1>To-Do App</h1>
+ </header>
+ <!-- Formulário -->
+ <section class="todo-form">
+ <input type="text" id="taskInput" placeholder="Digite uma tarefa..." />
+ <button onclick="addTask()">Adicionar</button>
+ </section>
+ <!-- Tabela -->
+ <section class="todo-table">
+ <table>
+ <thead>
+ <tr>
+ <th>#</th>
+ <th>Tarefa</th>
+ <th>Status</th>
+ <th>Ações</th>
+ </tr>
+ </thead>
+ <tbody id="taskTable">
+ <!-- tarefas entram aqui -->
+ </tbody>
+ </table>
+ </section>
+ </div>
+ <script>
+ let tasks = [];
+ function addTask() {
+ const input = document.getElementById("taskInput");
+ const value = input.value.trim();
+ if (!value) return;
+ tasks.push({
+ text: value,
+ done: false
+ });
+ input.value = "";
+ renderTasks();
+ }
+ function toggleTask(index) {
+ tasks[index].done = !tasks[index].done;
+ renderTasks();
+ }
+ function deleteTask(index) {
+ tasks.splice(index, 1);
+ renderTasks();
+ }
+ function renderTasks() {
+ const table = document.getElementById("taskTable");
+ table.innerHTML = "";
+ tasks.forEach((task, index) => {
+ const row = document.createElement("tr");
+ row.innerHTML = `
+ <td>${index + 1}</td>
+ <td class="${task.done ? 'done' : ''}">${task.text}</td>
+ <td>
+ <span class="status ${task.done ? 'completed' : 'pending'}">
+ ${task.done ? 'Concluído' : 'Pendente'}
+ </span>
+ </td>
+ <td>
+ <button class="btn complete" onclick="toggleTask(${index})">
+ ✓
+ </button>
+ <button class="btn delete" onclick="deleteTask(${index})">
+ ✕
+ </button>
+ </td>
+ `;
+ table.appendChild(row);
+ });
+ }
+ </script>
+</body>
+</html>

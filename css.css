@@ -1,0 +1,105 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: Arial, sans-serif;
+}
+body {
+ background: #f4f6f8;
+ display: flex;
+ justify-content: center;
+ padding: 40px;
+}
+.container {
+ width: 100%;
+ max-width: 800px;
+ background: #fff;
+ padding: 20px;
+ border-radius: 10px;
+ box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+header {
+ margin-bottom: 20px;
+}
+h1 {
+ text-align: center;
+ color: #333;
+}
+/* Form */
+.todo-form {
+ display: flex;
+ gap: 10px;
+ margin-bottom: 20px;
+}
+.todo-form input {
+ flex: 1;
+ padding: 10px;
+ border: 1px solid #ccc;
+ border-radius: 6px;
+}
+.todo-form button {
+ padding: 10px 20px;
+ border: none;
+ background: #4CAF50;
+ color: white;
+ border-radius: 6px;
+ cursor: pointer;
+ transition: 0.3s;
+}
+.todo-form button:hover {
+ background: #45a049;
+}
+/* Table */
+table {
+ width: 100%;
+ border-collapse: collapse;
+}
+thead {
+ background: #4CAF50;
+ color: white;
+}
+th, td {
+ padding: 12px;
+ text-align: center;
+}
+tbody tr:nth-child(even) {
+ background: #f9f9f9;
+}
+/* Status */
+.status {
+ padding: 5px 10px;
+ border-radius: 20px;
+ font-size: 12px;
+}
+.completed {
+ background: #d4edda;
+ color: #155724;
+}
+.pending {
+ background: #fff3cd;
+ color: #856404;
+}
+/* Task done */
+.done {
+ text-decoration: line-through;
+ color: #888;
+}
+/* Buttons */
+.btn {
+ border: none;
+ padding: 6px 10px;
+ margin: 0 3px;
+ border-radius: 5px;
+ cursor: pointer;
+}
+.complete {
+ background: #28a745;
+ color: white;
+}
+.delete {
+ background: #dc3545;
+ color: white;
+}
+.btn:hover {
+ opacity: 0.8;
+}
